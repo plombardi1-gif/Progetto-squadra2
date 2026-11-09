@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101828"><title>Smart Campus Space Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
+<body><div class="app-shell">
+<aside class="sidebar"><a class="brand" href="#"><span class="brand-mark">SC</span><span><b>Smart Campus</b><small>SPACE FINDER</small></span></a>
+<p class="nav-label">WORKSPACE</p><nav class="side-nav" aria-label="Navigazione principale">
+<button class="nav-item active" data-section="rooms"><span>🏫</span>Aule &amp; Posti</button>
+<button class="nav-item" data-section="notices"><span>📢</span>Bacheca Avvisi <i>3</i></button>
+<button class="nav-item" data-section="info"><span>ℹ️</span>Info Campus &amp; Orari</button>
+<button class="nav-item" data-section="analytics"><span>📊</span>Analytics &amp; KPI</button>
+</nav><div class="sidebar-bottom"><span class="online-dot"></span><div><b>Modalità locale</b><small>Nessun backend richiesto</small></div><p>Python Innovation Hackathon<br>Challenge 1 · Smart Campus</p></div></aside>
+<main class="main-content"><header class="main-header"><div><p class="breadcrumb">SMART CAMPUS / <span id="breadcrumbCurrent">DASHBOARD</span></p><h1 id="pageTitle">Aule &amp; Posti</h1><p id="pageSubtitle">Trova uno spazio, controlla i posti e scegli dove studiare.</p></div>
+<div class="header-actions"><span class="data-indicator"><i></i> Dataset locale</span><label for="jsonFileInput" class="file-button">↥ &nbsp; Scegli JSON</label><input id="jsonFileInput" type="file" accept=".json,application/json"></div><p id="fileStatus" class="file-status" role="status">Nessun file caricato · seleziona dati/data.json</p></header>
+<div class="content-wrap">
+<section class="page-section active" id="section-rooms" data-page="rooms">
+<div class="section-heading"><div><p class="eyebrow">PANORAMICA CAMPUS</p><h2>Il campus in numeri</h2></div><span class="live-indicator">● Aggiornamento locale</span></div>
+<div class="kpi-grid"><article class="kpi-card"><small>DISPONIBILITÀ</small><strong id="kpiFree">—</strong><span>Aule libere</span></article><article class="kpi-card"><small>POSTAZIONI</small><strong id="kpiSeats">—</strong><span>Posti disponibili nelle aule libere</span></article><article class="kpi-card"><small>TOP BUILDING</small><strong id="kpiBuilding">—</strong><span>Più aule libere</span></article></div>
+<div class="section-heading spaces-heading"><div><p class="eyebrow">ESPLORA GLI SPAZI</p><h2>Trova il posto giusto</h2></div><span id="resultsCount">0 spazi</span></div>
+<div class="filters"><label class="search-field">⌕ <input id="searchInput" type="search" placeholder="Cerca aula o laboratorio..."></label><label class="select-field"><select id="buildingFilter"><option value="">Tutti gli edifici</option></select></label><label class="check-field"><input id="outletFilter" type="checkbox"> Solo con prese elettriche</label></div>
+<div class="legend"><span>🟢 Meno del 50%</span><span>🟠 Dal 50% all'85%</span><span>🔴 Oltre 85% / aula occupata</span></div><div id="roomsGrid" class="rooms-grid" aria-live="polite"><div class="empty-state">Carica il file data.json dalla cartella dati/ con il pulsante in alto a destra.</div></div>
+</section>
+<section class="page-section" id="section-notices" data-page="notices" hidden><div class="section-heading"><div><p class="eyebrow">RESTA AGGIORNATO</p><h2>Bacheca Avvisi</h2><p class="section-description">Comunicazioni e appuntamenti per la comunità universitaria.</p></div></div><div class="notice-list">
+<article class="notice-card"><time>05 <small>NOV</small></time><div><span class="tag maintenance">MANUTENZIONE · 04/11/2026</span><h3>Manutenzione programmata del Wi-Fi</h3><p>Giovedì, dalle 07:00 alle 08:30, la rete Wi-Fi del campus potrebbe subire brevi interruzioni per un aggiornamento dell'infrastruttura.</p></div></article>
+<article class="notice-card"><time>07 <small>NOV</small></time><div><span class="tag event">EVENTO · 03/11/2026</span><h3>Hackathon Python: venerdì si parte!</h3><p>Venerdì si svolge l'Hackathon Python. Registrazione e accoglienza presso l'Edificio A, aula magna, dalle 09:00.</p></div></article>
+<article class="notice-card"><time>10 <small>NOV</small></time><div><span class="tag library">BIBLIOTECA · 02/11/2026</span><h3>Estensione degli orari della biblioteca</h3><p>In occasione della sessione d'esami, la Biblioteca Centrale prolungherà l'apertura fino alle 23:30 dal lunedì al venerdì.</p></div></article></div><p class="mock-note">Avvisi dimostrativi del prototipo.</p></section>
+<section class="page-section" id="section-info" data-page="info" hidden><div class="section-heading"><div><p class="eyebrow">ORGANIZZA LA TUA GIORNATA</p><h2>Info Campus &amp; Orari</h2></div></div><div class="info-grid">
+<article class="info-card"><span>🏫</span><div><small>APERTURA CAMPUS</small><h3>Orari generali</h3><p>Lunedì – Venerdì</p><b>08:00 – 20:00</b><p>Sabato</p><b>08:00 – 14:00</b><p>Domenica</p><b>Chiuso</b></div></article>
+<article class="info-card"><span>🗂️</span><div><small>SERVIZI STUDENTI</small><h3>Segreteria studenti</h3><p>Lunedì – Venerdì</p><b>09:00 – 12:00</b><p>📍 Edificio Centrale</p></div></article>
+<article class="info-card"><span>📚</span><div><small>STUDIO E RICERCA</small><h3>Biblioteca &amp; Sale Studio</h3><p>Orario continuato</p><b>08:30 – 22:00</b></div></article></div>
+<article class="rules-card"><p class="eyebrow">VIVERE BENE GLI SPAZI</p><h2>Regole del Campus</h2><ul><li><b>Badge obbligatorio</b> — porta sempre con te il badge universitario.</li><li><b>Silenzio nelle sale studio</b> — silenzia il telefono e limita le conversazioni.</li><li><b>Raccolta differenziata</b> — utilizza gli appositi contenitori e lascia puliti gli spazi.</li></ul></article></section>
+<section class="page-section" id="section-analytics" data-page="analytics" hidden><div class="section-heading"><div><p class="eyebrow">DATI DEL DATASET</p><h2>Analytics &amp; KPI</h2><p class="section-description">Indicatori aggregati calcolati dal file JSON caricato.</p></div></div><div class="analytics-grid">
+<article class="analytics-card"><small>TOTALE AULE MONITORATE</small><strong id="analyticsRooms">—</strong><span>Spazi nel dataset</span></article><article class="analytics-card"><small>CAPIENZA TOTALE</small><strong id="analyticsCapacity">—</strong><span>Posti complessivi</span></article><article class="analytics-card"><small>POSTI OCCUPATI</small><strong id="analyticsOccupied">—</strong><span id="analyticsAvailable">— posti disponibili</span></article><article class="analytics-card"><small>OCCUPAZIONE GLOBALE</small><strong id="analyticsOccupancy">—</strong><div class="progress-track"><div id="analyticsProgress" class="progress-fill progress-green"></div></div><span>Occupati / capienza totale</span></article><article class="analytics-card wide"><small>EDIFICIO CON PIÙ POSTI DISPONIBILI</small><strong id="analyticsTopBuilding">—</strong><span id="analyticsTopSeats">—</span></article></div></section>
+</div></main></div></body></html>

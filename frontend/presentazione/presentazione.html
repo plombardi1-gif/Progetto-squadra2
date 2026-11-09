@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="Presentazione Smart Campus Space Finder - Python Innovation Hackathon">
+  <title>Smart Campus Space Finder | Presentazione</title>
+  <link rel="stylesheet" href="presentazione.css">
+  <script src="presentazione.js" defer></script>
+</head>
+<body>
+  <main class="presentation" aria-label="Presentazione Smart Campus Space Finder">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Torna alla prima slide" id="homeButton">
+        <span class="brand-mark">SC</span>
+        <span>SMART CAMPUS <b>SPACE FINDER</b></span>
+      </a>
+      <div class="top-meta">
+        <span class="live-dot"></span>
+        <span>PYTHON INNOVATION HACKATHON</span>
+      </div>
+    </header>
+
+    <div class="slides" id="slides">
+      <!-- SLIDE 1 -->
+      <section class="slide active cover" aria-hidden="false" data-title="Smart Campus Space Finder">
+        <div class="cover-content">
+          <p class="eyebrow"><span class="eyebrow-line"></span> CHALLENGE 01 · SMART CAMPUS</p>
+          <h1>Smart Campus<br><span>Space Finder</span></h1>
+          <p class="lead">Trova il tuo spazio. Ottimizza il tuo tempo.</p>
+          <p class="subtitle">MVP per il Python Innovation Hackathon — Challenge 1 (Smart Campus)</p>
+          <div class="cover-footer">
+            <div class="avatar-stack" aria-hidden="true"><i>A</i><i>G</i><i>P</i><i>G</i></div>
+            <div><strong>Team di Sviluppo &amp; Data</strong><small>Una soluzione semplice per un campus più smart</small></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="campus-card">
+            <div class="campus-card-head"><span>LIVE CAMPUS OVERVIEW</span><span class="status-live">● DEMO</span></div>
+            <div class="mini-kpis">
+              <div><small>AULE</small><strong>24</strong></div>
+              <div><small>POSTI LIBERI</small><strong class="green">186</strong></div>
+              <div><small>OCCUPAZIONE</small><strong>42%</strong></div>
+            </div>
+            <div class="room-row"><span class="room-dot free"></span><span>Aula A101</span><b>12 posti</b></div>
+            <div class="room-row"><span class="room-dot busy"></span><span>Lab B204</span><b>In lezione</b></div>
+            <div class="room-row"><span class="room-dot free"></span><span>Aula C012</span><b>18 posti</b></div>
+            <div class="mini-chart"><span style="height:35%"></span><span style="height:58%"></span><span style="height:44%"></span><span style="height:76%"></span><span style="height:52%"></span><span style="height:88%"></span><span style="height:63%"></span><span style="height:46%"></span></div>
+          </div>
+          <div class="floating-chip chip-one">⌁ <span>Disponibilità aggiornata</span></div>
+          <div class="floating-chip chip-two">↗ <span>Dashboard intuitiva</span></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2 -->
+      <section class="slide" aria-hidden="true" data-title="Problema e soluzione">
+        <div class="section-kicker">01 / IL CONTESTO</div>
+        <h2>Un campus più smart<br><span>parte da un problema reale.</span></h2>
+        <p class="section-intro">Trovare il posto giusto non dovrebbe richiedere tempo, tentativi o informazioni sparse.</p>
+        <div class="two-columns">
+          <article class="info-card problem-card">
+            <div class="card-icon">!</div><p class="card-label">IL PROBLEMA</p>
+            <h3>Informazioni frammentate</h3>
+            <ul class="feature-list">
+              <li>Difficoltà nel trovare postazioni studio libere.</li>
+              <li>Scarsa visibilità su prese elettriche e servizi disponibili.</li>
+              <li>Orari e stato delle aule non immediatamente consultabili.</li>
+              <li>Tempo perso per verificare la disponibilità degli spazi.</li>
+            </ul>
+          </article>
+          <div class="solution-arrow" aria-hidden="true">→</div>
+          <article class="info-card solution-card">
+            <div class="card-icon">✦</div><p class="card-label">LA SOLUZIONE</p>
+            <h3>Una dashboard, tutto sotto controllo</h3>
+            <ul class="feature-list">
+              <li>Panoramica rapida dello stato delle aule.</li>
+              <li>Posti disponibili e occupazione a colpo d'occhio.</li>
+              <li>Informazioni su servizi, docenti e orari.</li>
+              <li>Interfaccia intuitiva per prendere decisioni più velocemente.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="bottom-statement"><span>LA VISION</span> Rendere gli spazi del campus più accessibili, leggibili e organizzati.</div>
+      </section>
+
+      <!-- SLIDE 3 -->
+      <section class="slide" aria-hidden="true" data-title="Architettura del sistema">
+        <div class="section-kicker">02 / ARCHITETTURA</div>
+        <h2>Un flusso dati semplice.<br><span>Un'esecuzione completamente offline.</span></h2>
+        <p class="section-intro">Il backend locale gestisce i dati; il frontend li importa e li visualizza in sola lettura.</p>
+        <div class="architecture">
+          <article class="arch-node">
+            <div class="arch-icon python-icon">Py</div><span class="node-type">BACKEND LOCALE</span>
+            <h3>Python CLI</h3><p>Gestione e aggiornamento dei dati tramite menu da terminale.</p>
+            <div class="node-tag">main.py</div>
+          </article>
+          <div class="arch-connector"><span>01</span><i></i><small>scrittura</small></div>
+          <article class="arch-node data-node">
+            <div class="arch-icon data-icon">▤</div><span class="node-type">PERSISTENZA</span>
+            <h3>File JSON &amp; CSV</h3><p>Archiviazione leggera, leggibile e facilmente trasferibile.</p>
+            <div class="file-pills"><span>data.json</span><span>data.csv</span></div>
+          </article>
+          <div class="arch-connector"><span>02</span><i></i><small>import</small></div>
+          <article class="arch-node">
+            <div class="arch-icon web-icon">⌘</div><span class="node-type">FRONTEND SPA</span>
+            <h3>Dashboard Web</h3><p>Visualizzazione dinamica dei dati con HTML5, CSS3 e JavaScript.</p>
+            <div class="node-tag">index.html</div>
+          </article>
+        </div>
+        <div class="offline-banner"><span class="offline-symbol">◉</span><div><strong>100% OFFLINE · NESSUN SERVER ATTIVO</strong><small>La dashboard può essere aperta direttamente dal browser tramite <code>file://</code>, nel rispetto del vincolo serverless.</small></div><span class="offline-check">✓</span></div>
+      </section>
+
+      <!-- SLIDE 4 -->
+      <section class="slide" aria-hidden="true" data-title="Backend Python CLI">
+        <div class="section-kicker">03 / BACKEND</div>
+        <h2>Il controllo dei dati<br><span>parte dal terminale.</span></h2>
+        <p class="section-intro">Una CLI Python per gestire le aule e mantenere aggiornate le informazioni del campus.</p>
+        <div class="backend-layout">
+          <div class="terminal">
+            <div class="terminal-bar"><div><i></i><i></i><i></i></div><span>smart-campus · terminal</span><b>•••</b></div>
+            <div class="terminal-body">
+              <p class="terminal-muted">=== SMART CAMPUS SPACE FINDER ===</p>
+              <p><em>1.</em> Mostra tutte le aule</p><p><em>2.</em> Inserisci / aggiorna aula</p>
+              <p><em>3.</em> Elimina aula</p><p class="terminal-highlight"><em>4.</em> Prenota / occupa un posto <span>←</span></p>
+              <p><em>5.</em> Filtra aule libere</p><p><em>6.</em> Mostra KPI</p>
+              <p><em>7.</em> Salva JSON e CSV</p><p><em>8.</em> Esci</p>
+              <p class="terminal-prompt">Scelta [1-8]: <b>_</b></p>
+            </div>
+          </div>
+          <div class="backend-features">
+            <div class="backend-feature"><span class="feature-number">01</span><div><h3>Gestione completa</h3><p>Inserimento, aggiornamento ed eliminazione delle aule.</p></div></div>
+            <div class="backend-feature"><span class="feature-number">02</span><div><h3>Disponibilità</h3><p>Filtro delle aule libere e aggiornamento dei posti occupati o prenotati.</p></div></div>
+            <div class="backend-feature"><span class="feature-number">03</span><div><h3>KPI e persistenza</h3><p>Calcolo degli indicatori e salvataggio su <code>data.json</code> e <code>data.csv</code>.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 -->
+      <section class="slide" aria-hidden="true" data-title="Frontend SPA">
+        <div class="section-kicker">04 / FRONTEND</div>
+        <h2>Una dashboard chiara,<br><span>pensata per essere usata.</span></h2>
+        <p class="section-intro">Interfaccia single-page realizzata con HTML5, CSS3 e JavaScript vanilla: nessun framework necessario.</p>
+        <div class="frontend-layout">
+          <div class="dashboard-mock">
+            <aside class="mock-sidebar"><div class="mock-logo">SC</div><span class="mock-active">▦</span><span>▤</span><span>ⓘ</span><span>▥</span></aside>
+            <div class="mock-main">
+              <div class="mock-heading"><div><small>CAMPUS / AULE</small><strong>Aule &amp; Posti</strong></div><button type="button" tabindex="-1">Scegli JSON ↑</button></div>
+              <div class="mock-stats"><div><small>Totale aule</small><b>24</b></div><div><small>Posti liberi</small><b class="green">186</b></div><div><small>Occupazione</small><b>42%</b></div></div>
+              <div class="mock-room"><div><b>Aula A101</b><small>Edificio A · 2° piano</small></div><span class="mock-badge free-badge">Libera</span><div class="mock-progress"><i style="width:70%"></i></div><small>28 occupati · 12 liberi</small></div>
+              <div class="mock-room"><div><b>Laboratorio B204</b><small>Edificio B · 1° piano</small></div><span class="mock-badge lesson-badge">In lezione</span><div class="mock-progress"><i style="width:92%"></i></div><small>23 occupati · 2 liberi</small></div>
+            </div>
+          </div>
+          <div class="frontend-points">
+            <div><span>01</span><section><h3>Sidebar fissa</h3><p>Navigazione immediata tra Aule, Bacheca Avvisi, Info Campus e Analytics.</p></section></div>
+            <div><span>02</span><section><h3>Occupazione dinamica</h3><p>Calcolo e visualizzazione della percentuale di riempimento con progress bar.</p></section></div>
+            <div><span>03</span><section><h3>Stati riconoscibili</h3><p>Badge e colori distinguono aule Libere, Occupate Studio e In Lezione.</p></section></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 -->
+      <section class="slide" aria-hidden="true" data-title="Gestione dei dati">
+        <div class="section-kicker">05 / DATA MANAGEMENT</div>
+        <h2>Un formato leggero,<br><span>pronto a evolvere.</span></h2>
+        <p class="section-intro">Il file JSON contiene le informazioni strutturate di ogni aula e consente di trasferire i dati senza database.</p>
+        <div class="data-layout">
+          <div class="json-window">
+            <div class="json-top"><span><i></i> data.json</span><small>JSON · DATA MODEL</small></div>
+            <pre><code>{
+  <b>"id"</b>: <s>"A101"</s>,
+  <b>"edificio"</b>: <s>"Edificio A"</s>,
+  <b>"aula"</b>: <s>"Aula 101"</s>,
+  <b>"stato"</b>: <s>"Libera"</s>,
+  <b>"capienza_totale"</b>: <u>40</u>,
+  <b>"posti_occupati"</b>: <u>28</u>,
+  <b>"posti_disponibili"</b>: <u>12</u>,
+  <b>"prese_elettriche"</b>: <u>8</u>,
+  <b>"docente_referente"</b>: <s>"Mario Rossi"</s>,
+  <b>"libera_fino_a"</b>: <s>"18:00"</s>
+}</code></pre>
+          </div>
+          <div class="data-benefits">
+            <div class="data-benefit"><span>⌁</span><div><h3>Schema descrittivo</h3><p>ID, aula, edificio, capienza, occupazione, prese, docente e orari.</p></div></div>
+            <div class="data-benefit"><span>↻</span><div><h3>Importazione immediata</h3><p>Il pulsante <b>“Scegli JSON”</b> carica il file nel browser senza ricaricare la pagina.</p></div></div>
+            <div class="data-benefit"><span>⇄</span><div><h3>Retrocompatibilità</h3><p>Normalizzazione dei campi e supporto ai dati meno recenti, dove disponibili.</p></div></div>
+          </div>
+        </div>
+        <div class="data-note"><b>Un'unica fonte dati:</b> capienza totale, posti occupati e posti disponibili vengono mantenuti coerenti.</div>
+      </section>
+
+      <!-- SLIDE 7 -->
+      <section class="slide" aria-hidden="true" data-title="Demo e workflow">
+        <div class="section-kicker">06 / LIVE DEMO</div>
+        <h2>Dalla modifica al risultato<br><span>in due semplici passaggi.</span></h2>
+        <p class="section-intro">Il workflow operativo collega l'aggiornamento locale alla consultazione immediata della dashboard.</p>
+        <div class="workflow">
+          <article class="workflow-step">
+            <div class="step-top"><span class="step-index">01</span><span class="step-label">BACKEND · TERMINALE</span></div>
+            <div class="step-illustration terminal-illustration"><div class="prompt-line"><b>›</b> python main.py</div><div class="prompt-line muted-prompt">Seleziona operazione...</div><div class="prompt-line"><b>›</b> Prenota / occupa un posto</div><div class="prompt-line success-prompt">✓ Dati aggiornati</div></div>
+            <h3>Aggiorna i dati</h3><p>Avvia <code>python main.py</code> o il file <code>.bat</code>. Modifica un'aula o registra una prenotazione.</p>
+            <div class="step-output">OUTPUT <b>data.json + data.csv</b></div>
+          </article>
+          <div class="workflow-link">→</div>
+          <article class="workflow-step">
+            <div class="step-top"><span class="step-index">02</span><span class="step-label">FRONTEND · BROWSER</span></div>
+            <div class="step-illustration browser-illustration"><div class="browser-dots"><i></i><i></i><i></i><span>localhost · file</span></div><div class="browser-content"><div class="browser-tile">AULE <b>24</b></div><div class="browser-tile">POSTI LIBERI <b class="green">185</b></div><div class="browser-bar"><i></i></div><small>Dashboard aggiornata ✓</small></div></div>
+            <h3>Visualizza i risultati</h3><p>Apri la dashboard e seleziona il nuovo file JSON per aggiornare KPI, card e disponibilità.</p>
+            <div class="step-output">RISULTATO <b>Dashboard aggiornata</b></div>
+          </article>
+        </div>
+        <div class="demo-tip"><span>TIP</span> Durante la demo, tieni pronti il terminale e la dashboard per mostrare il cambiamento in tempo reale.</div>
+      </section>
+
+      <!-- SLIDE 8 -->
+      <section class="slide" aria-hidden="true" data-title="Sviluppi futuri">
+        <div class="section-kicker">07 / ROADMAP</div>
+        <h2>Un MVP concreto.<br><span>Una base per crescere.</span></h2>
+        <p class="section-intro">La soluzione attuale privilegia semplicità e affidabilità, mantenendo aperta la strada a nuove integrazioni.</p>
+        <div class="roadmap-layout">
+          <article class="strength-panel"><p class="card-label">PUNTI DI FORZA</p><h3>Leggero per scelta.<br>Utile da subito.</h3>
+            <div class="strength-item"><span>✓</span><div><b>Modularità</b><small>Backend e frontend separati.</small></div></div>
+            <div class="strength-item"><span>✓</span><div><b>Velocità</b><small>Flusso dati essenziale e immediato.</small></div></div>
+            <div class="strength-item"><span>✓</span><div><b>Zero dipendenze esterne</b><small>Nessun server o framework obbligatorio.</small></div></div>
+          </article>
+          <div class="roadmap-panel"><p class="card-label">POSSIBILI EVOLUZIONI</p>
+            <div class="roadmap-item"><span class="roadmap-number">01</span><div><h3>Database</h3><p>Persistenza centralizzata e gestione multiutente.</p></div><span class="roadmap-arrow">↗</span></div>
+            <div class="roadmap-item"><span class="roadmap-number">02</span><div><h3>API REST</h3><p>Comunicazione tra servizi e aggiornamenti automatici.</p></div><span class="roadmap-arrow">↗</span></div>
+            <div class="roadmap-item"><span class="roadmap-number">03</span><div><h3>Sensori IoT</h3><p>Rilevamento delle presenze fisiche nelle aule.</p></div><span class="roadmap-arrow">↗</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9 -->
+      <section class="slide final-slide" aria-hidden="true" data-title="Team e ringraziamenti">
+        <div class="section-kicker">08 / THE TEAM</div>
+        <div class="final-heading"><div><h2>Le idee diventano<br><span>progetti, insieme.</span></h2><p class="section-intro">Smart Campus Space Finder · Team di Sviluppo &amp; Data</p></div><div class="final-emblem">SC<span>✦</span></div></div>
+        <div class="team-grid">
+          <article class="team-card"><span class="team-avatar">AM</span><div><small>TEAM MEMBER 01</small><h3>Alessandro Matrigiano</h3></div><span class="team-star">✦</span></article>
+          <article class="team-card"><span class="team-avatar">GR</span><div><small>TEAM MEMBER 02</small><h3>Giuseppe Ragno</h3></div><span class="team-star">✦</span></article>
+          <article class="team-card"><span class="team-avatar">PL</span><div><small>TEAM MEMBER 03</small><h3>Pietro Lombardi</h3></div><span class="team-star">✦</span></article>
+          <article class="team-card"><span class="team-avatar">GL</span><div><small>TEAM MEMBER 04</small><h3>Gabriel Loconte</h3></div><span class="team-star">✦</span></article>
+        </div>
+        <div class="thank-you"><span class="thank-line"></span><h3>Grazie per l'attenzione!</h3><p>Spazio alle domande e alla demo live.</p><span class="thank-line"></span></div>
+      </section>
+    </div>
+
+    <footer class="controls">
+      <button class="nav-button" id="prevButton" type="button" aria-label="Slide precedente" title="Precedente (←)">←</button>
+      <div class="progress-area">
+        <div class="progress-meta"><span id="slideCounter">SLIDE 1 / 9</span><span id="progressPercent">11%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Avanzamento presentazione" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <div class="control-hint"><kbd>←</kbd><kbd>→</kbd><span>per navigare</span><kbd>SPACE</kbd></div>
+      <button class="nav-button next-button" id="nextButton" type="button" aria-label="Slide successiva" title="Successiva (→)">→</button>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "SC-001",
+    "edificio": "Edificio A - Ingegneria",
+    "aula": "Aula A101",
+    "stato": "Libera",
+    "capienza_totale": 40,
+    "posti_disponibili": 10,
+    "posti_occupati": 30,
+    "prese_elettriche": true,
+    "libera_fino_a": "16:30",
+    "docente_referente": "Prof. Mario Rossi - Algoritmi",
+    "data_aggiornamento": "2026-11-06T12:51:29+01:00"
+  },
+  {
+    "id": "SC-002",
+    "edificio": "Edificio A - Ingegneria",
+    "aula": "Lab 3",
+    "stato": "In Lezione",
+    "capienza_totale": 32,
+    "posti_disponibili": 0,
+    "posti_occupati": 32,
+    "prese_elettriche": true,
+    "libera_fino_a": "12:00",
+    "docente_referente": "Prof.ssa Laura Bianchi - Basi di Dati",
+    "data_aggiornamento": "2026-11-06 08:45:00"
+  },
+  {
+    "id": "SC-003",
+    "edificio": "Edificio B - Economia",
+    "aula": "Aula B204",
+    "stato": "Libera",
+    "capienza_totale": 24,
+    "posti_disponibili": 18,
+    "posti_occupati": 6,
+    "prese_elettriche": false,
+    "libera_fino_a": "18:00",
+    "docente_referente": "Prof. Andrea Verdi - Economia Digitale",
+    "data_aggiornamento": "2026-11-06 09:10:00"
+  },
+  {
+    "id": "SC-004",
+    "edificio": "Biblioteca Centrale",
+    "aula": "Sala Studio 2",
+    "stato": "Occupata Studio",
+    "capienza_totale": 20,
+    "posti_disponibili": 6,
+    "posti_occupati": 14,
+    "prese_elettriche": true,
+    "libera_fino_a": "20:00",
+    "docente_referente": "Dott.ssa Elena Neri - Tutorato",
+    "data_aggiornamento": "2026-11-06 09:05:00"
+  },
+  {
+    "id": "SC-005",
+    "edificio": "Edificio C - Lettere",
+    "aula": "Aula C012",
+    "stato": "Libera",
+    "capienza_totale": 40,
+    "posti_disponibili": 32,
+    "posti_occupati": 8,
+    "prese_elettriche": true,
+    "libera_fino_a": "17:15",
+    "docente_referente": "Prof.ssa Marta Gallo - Letteratura Italiana",
+    "data_aggiornamento": "2026-11-06 09:15:00"
+  },
+  {
+    "id": "SC-006",
+    "edificio": "Edificio B - Economia",
+    "aula": "Aula B110",
+    "stato": "Libera",
+    "capienza_totale": 16,
+    "posti_disponibili": 12,
+    "posti_occupati": 4,
+    "prese_elettriche": false,
+    "libera_fino_a": "15:45",
+    "docente_referente": "Prof. Luca Ferri - Statistica",
+    "data_aggiornamento": "2026-11-06 09:20:00"
+  }
+]

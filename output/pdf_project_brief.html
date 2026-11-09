@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Brief — Smart Campus Space Finder</title>
+<style>
+  :root {
+    --accent: #1a56db;
+    --accent-light: #e8f0fe;
+    --dark: #101828;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --green: #059669;
+    --orange: #d97706;
+    --red: #dc2626;
+    --code-bg: #f8fafc;
+    --note-bg: #eff6ff;
+    --tip-bg: #f0fdf4;
+    --warn-bg: #fffbeb;
+    --imp-bg: #fef2f2;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--dark); background: #fff; line-height: 1.7; }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    background: linear-gradient(135deg, #101828 0%, #1a56db 100%);
+    color: #fff; padding: 60px 80px; page-break-after: always;
+  }
+  .cover-eyebrow { font-size: 0.75rem; letter-spacing: .15em; text-transform: uppercase; opacity: .6; margin-bottom: 24px; }
+  .cover h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+  .cover h1 span { color: #60a5fa; }
+  .cover-desc { font-size: 1.15rem; opacity: .85; max-width: 540px; margin-bottom: 48px; }
+  .cover-meta { display: flex; gap: 40px; flex-wrap: wrap; }
+  .cover-meta-item small { display: block; font-size: 0.7rem; letter-spacing: .1em; text-transform: uppercase; opacity: .55; margin-bottom: 4px; }
+  .cover-meta-item strong { font-size: 1rem; }
+  .cover-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: 10px 20px; font-size: .8rem; letter-spacing: .05em; margin-top: 60px; }
+  .cover-badge span { width: 8px; height: 8px; border-radius: 50%; background: #34d399; }
+
+  /* CONTENT */
+  .container { max-width: 860px; margin: 0 auto; padding: 60px 48px; }
+  h2 { font-size: 1.75rem; font-weight: 700; color: var(--dark); margin: 48px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+  h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin: 28px 0 10px; }
+  h4 { font-size: 1rem; font-weight: 700; color: var(--muted); margin: 20px 0 8px; text-transform: uppercase; letter-spacing: .05em; font-size: .8rem; }
+  p { margin-bottom: 14px; color: #374151; }
+  ul, ol { margin: 10px 0 14px 24px; }
+  li { margin-bottom: 6px; color: #374151; }
+  strong { color: var(--dark); }
+  code { font-family: 'Cascadia Code', 'Consolas', monospace; font-size: .85em; background: var(--code-bg); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+  pre { background: #1e293b; color: #e2e8f0; border-radius: 10px; padding: 20px 24px; font-size: .82rem; overflow-x: auto; margin: 16px 0; font-family: 'Cascadia Code', 'Consolas', monospace; line-height: 1.6; }
+  pre code { background: none; border: none; color: inherit; padding: 0; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .88rem; }
+  thead th { background: var(--accent); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f9fafb; }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  /* ALERTS */
+  .alert { border-left: 4px solid; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; }
+  .alert-note { border-color: var(--accent); background: var(--note-bg); }
+  .alert-tip { border-color: var(--green); background: var(--tip-bg); }
+  .alert-important { border-color: var(--red); background: var(--imp-bg); }
+  .alert-warning { border-color: var(--orange); background: var(--warn-bg); }
+  .alert-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+  .alert-note .alert-label { color: var(--accent); }
+  .alert-tip .alert-label { color: var(--green); }
+  .alert-important .alert-label { color: var(--red); }
+  .alert-warning .alert-label { color: var(--orange); }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .kpi-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+  .kpi-card small { display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .kpi-card strong { display: block; font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 4px; }
+  .kpi-card span { font-size: .82rem; color: var(--muted); }
+
+  /* TEAM */
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+  .team-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; display: flex; gap: 14px; align-items: center; }
+  .team-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; flex-shrink: 0; }
+  .team-card h4 { font-size: .85rem; font-weight: 700; color: var(--dark); text-transform: none; letter-spacing: 0; margin: 0 0 2px; }
+  .team-card small { font-size: .78rem; color: var(--muted); }
+
+  /* ROADMAP */
+  .roadmap-item { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .roadmap-num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .78rem; flex-shrink: 0; margin-top: 2px; }
+
+  /* FOOTER */
+  .doc-footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); font-size: .78rem; color: var(--muted); text-align: center; }
+
+  /* PRINT */
+  @media print {
+    body { font-size: 12px; }
+    .cover { min-height: auto; padding: 60px; }
+    .cover h1 { font-size: 2.5rem; }
+    .container { padding: 40px 32px; }
+    h2 { font-size: 1.4rem; margin: 32px 0 12px; }
+    pre { background: #f1f5f9; color: #1e293b; border: 1px solid #cbd5e1; }
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 15mm 12mm; size: A4; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <p class="cover-eyebrow">Python Innovation Hackathon · Challenge 01 · Smart Campus</p>
+  <h1>Smart Campus<br><span>Space Finder</span></h1>
+  <p class="cover-desc">Documento di progetto ufficiale — Project Brief completo con architettura, funzionalità, modello dati, KPI e roadmap.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><small>Team</small><strong>Alessandro Matrigiano · Giuseppe Ragno · Pietro Lombardi · Gabriel Loconte</strong></div>
+    <div class="cover-meta-item"><small>Data</small><strong>Novembre 2026</strong></div>
+    <div class="cover-meta-item"><small>Versione</small><strong>1.0 — Finale</strong></div>
+  </div>
+  <div class="cover-badge"><span></span> PROGETTO COMPLETATO · PRONTO PER DEMO</div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+<h2>Executive Summary</h2>
+<p><strong>Smart Campus Space Finder</strong> è una soluzione software sviluppata nell'ambito della <em>Python Innovation Hackathon – Challenge 1</em>, concepita per rispondere a una delle esigenze più concrete e quotidiane della vita universitaria: sapere dove trovare un posto a sedere, uno spazio di studio o un'aula disponibile all'interno del campus.</p>
+<p>Il progetto nasce dall'osservazione diretta di una problematica diffusa in quasi tutti gli atenei italiani: l'assenza di un sistema centralizzato, accessibile e aggiornabile in modo semplice, che permetta a studenti, docenti e personale amministrativo di conoscere la disponibilità delle aule e degli spazi comuni. Gli studenti si trovano spesso a girare per i corridoi del campus alla ricerca di un posto libero, con una perdita di tempo significativa e una fruizione inefficiente degli spazi disponibili.</p>
+<p>La soluzione proposta si distingue per la sua semplicità architetturale e la totale assenza di dipendenze esterne: l'intero sistema è costruito utilizzando esclusivamente <strong>Python 3 con la libreria standard</strong> per il backend CLI e <strong>HTML5/CSS3/JavaScript Vanilla</strong> per il frontend web. Non è richiesto alcun server, framework, database o connessione a Internet.</p>
+<p>Il sistema si compone di due moduli principali: una <strong>CLI Python</strong> per la gestione e l'aggiornamento dei dati e una <strong>dashboard web SPA</strong> per la visualizzazione interattiva, filtraggio e analisi dei dati. I due moduli comunicano attraverso un file JSON condiviso, rendendo il flusso operativo intuitivo e trasparente.</p>
+
+<hr>
+
+<h2>Il Problema</h2>
+<p>La gestione degli spazi universitari rappresenta una sfida organizzativa complessa. I problemi principali identificati durante la fase di analisi sono:</p>
+<h3>1. Mancanza di visibilità in tempo reale</h3>
+<p>Gli studenti non hanno accesso a informazioni aggiornate sulla disponibilità delle aule. I tabelloni fisici, quando presenti, sono spesso obsoleti o non aggiornati sistematicamente.</p>
+<h3>2. Dispersione delle informazioni</h3>
+<p>Le informazioni sugli orari delle lezioni, la capienza delle aule e lo stato di occupazione sono frammentate tra diverse fonti: sito web dell'ateneo, bacheche fisiche, app di terze parti, comunicazioni informali.</p>
+<h3>3. Inefficienza nell'uso degli spazi</h3>
+<p>In molti casi, aule con posti liberi rimangono inutilizzate perché gli studenti non sanno che sono disponibili, mentre zone frequentate come biblioteche risultano sovraffollate.</p>
+<h3>4. Costi di infrastruttura elevati</h3>
+<p>Le soluzioni commerciali esistenti richiedono infrastrutture server, licenze software e manutenzione continua, rendendole inaccessibili per molti atenei con budget limitati.</p>
+
+<hr>
+
+<h2>La Soluzione</h2>
+<h3>Approccio Offline-First</h3>
+<p>Il sistema funziona completamente offline, senza necessità di connessione a Internet o server remoti. I dati sono memorizzati in un file JSON locale (<code>data.json</code>) che rappresenta la "fonte di verità" del sistema.</p>
+<h3>Doppia Interfaccia Complementare</h3>
+<ul>
+  <li><strong>CLI Python (<code>main.py</code>):</strong> Strumento per gli operatori che necessitano di aggiornare i dati in modo rapido e preciso.</li>
+  <li><strong>Dashboard Web (<code>index.html</code>):</strong> Interfaccia visuale per gli studenti che vogliono consultare le informazioni in modo immediato.</li>
+</ul>
+<h3>Flusso Dati</h3>
+<pre>Operatore → CLI Python → data.json ←→ Dashboard Web → Studente</pre>
+<div class="alert alert-note"><div class="alert-label">Nota</div>La scelta di utilizzare esclusivamente la libreria standard di Python e tecnologie web native è una decisione deliberata che garantisce massima portabilità e zero dipendenze da installare.</div>
+
+<hr>
+
+<h2>Stack Tecnologico</h2>
+<table>
+  <thead><tr><th>Componente</th><th>Tecnologia</th><th>Ruolo</th></tr></thead>
+  <tbody>
+    <tr><td>Backend CLI</td><td>Python 3.x (stdlib)</td><td>Gestione dati, CRUD, esportazione</td></tr>
+    <tr><td>Serializzazione</td><td>json (stdlib)</td><td>Lettura/scrittura data.json</td></tr>
+    <tr><td>Esportazione</td><td>csv (stdlib)</td><td>Generazione data.csv</td></tr>
+    <tr><td>Frontend</td><td>HTML5 / CSS3</td><td>Struttura SPA + stile responsive</td></tr>
+    <tr><td>Logica frontend</td><td>JavaScript Vanilla ES6+</td><td>FileReader API, filtraggio, KPI</td></tr>
+    <tr><td>Avvio</td><td>Windows Batch (.bat)</td><td>Script di avvio semplificato</td></tr>
+    <tr><td>Presentazione</td><td>HTML5/CSS3/JS</td><td>Slideshow 9 slide</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Architettura del Sistema</h2>
+<pre>┌──────────────────────────────────────────────────────────┐
+│              SMART CAMPUS SPACE FINDER                    │
+└──────────────────────────────────────────────────────────┘
+
+  ┌──────────────────┐          ┌──────────────────┐
+  │   OPERATORE      │          │    STUDENTE       │
+  │ (Personale/      │          │  (Utente finale)  │
+  │  Docente)        │          │                   │
+  └────────┬─────────┘          └────────┬──────────┘
+           │ Interazione testuale        │ Interazione visuale
+           ▼                             ▼
+  ┌──────────────────┐          ┌──────────────────┐
+  │   CLI Python     │          │  Dashboard Web   │
+  │   (main.py)      │          │  (index.html)    │
+  └────────┬─────────┘          └────────┬──────────┘
+           │ Scrittura                   │ Lettura (FileReader)
+           ▼                             ▼
+  ┌─────────────────────────────────────────────────┐
+  │                 LAYER DATI                       │
+  │   ┌─────────────┐      ┌──────────────────┐     │
+  │   │  data.json  │◄────►│    data.csv       │     │
+  │   │  (primario) │      │  (export/backup)  │     │
+  │   └─────────────┘      └──────────────────┘     │
+  └─────────────────────────────────────────────────┘</pre>
+
+<hr>
+
+<h2>Funzionalità Principali</h2>
+<h3>CLI Python — 8 Voci di Menu</h3>
+<table>
+  <thead><tr><th>Voce</th><th>Funzione</th><th>Descrizione</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Mostra tutte le aule</td><td>Tabella formattata con ID, edificio, stato, posti, prese, orario</td></tr>
+    <tr><td>2</td><td>Inserisci / Aggiorna aula</td><td>CRUD guidato con validazione completa di tutti i campi</td></tr>
+    <tr><td>3</td><td>Elimina aula</td><td>Eliminazione con conferma esplicita, protezione da eliminazioni accidentali</td></tr>
+    <tr><td>4</td><td>Prenota / Occupa posto</td><td>Decrementa posti_disponibili, aggiorna stato automaticamente se piena</td></tr>
+    <tr><td>5</td><td>Filtra aule libere</td><td>Filtro per edificio su aule con stato "Libera"</td></tr>
+    <tr><td>6</td><td>Mostra KPI</td><td>Calcolo aggregati: occupazione %, edificio top, posti totali</td></tr>
+    <tr><td>7</td><td>Salva JSON e CSV</td><td>Export manuale senza uscire dal programma</td></tr>
+    <tr><td>8</td><td>Esci</td><td>Autosave e terminazione sicura</td></tr>
+  </tbody>
+</table>
+
+<h3>Dashboard Web — 4 Sezioni</h3>
+<table>
+  <thead><tr><th>Sezione</th><th>Contenuto</th></tr></thead>
+  <tbody>
+    <tr><td>🏫 Aule &amp; Posti</td><td>KPI cards, griglia card aule con barra occupazione colorata, 3 filtri</td></tr>
+    <tr><td>📢 Bacheca Avvisi</td><td>Comunicazioni e avvisi del campus</td></tr>
+    <tr><td>ℹ️ Info Campus &amp; Orari</td><td>Orari edifici, contatti, regole utilizzo spazi</td></tr>
+    <tr><td>📊 Analytics &amp; KPI</td><td>Capienza totale, occupazione globale con progress bar, edificio top</td></tr>
+  </tbody>
+</table>
+<div class="alert alert-tip"><div class="alert-label">Tip</div>La dashboard usa <code>FileReader API</code> invece di <code>fetch()</code>, consentendo l'apertura diretta con <code>file://</code> senza server HTTP.</div>
+
+<hr>
+
+<h2>Modello dei Dati</h2>
+<pre>{
+  "id": "SC-001",
+  "edificio": "Edificio A - Ingegneria",
+  "aula": "Aula A101",
+  "stato": "Libera",
+  "capienza_totale": 40,
+  "posti_disponibili": 10,
+  "posti_occupati": 30,
+  "prese_elettriche": true,
+  "libera_fino_a": "16:30",
+  "docente_referente": "Prof. Mario Rossi - Algoritmi",
+  "data_aggiornamento": "2026-11-09T08:00:00+01:00"
+}</pre>
+<table>
+  <thead><tr><th>Campo</th><th>Tipo</th><th>Obbligatorio</th><th>Descrizione</th></tr></thead>
+  <tbody>
+    <tr><td><code>id</code></td><td>string</td><td>✅</td><td>Identificatore univoco (es. SC-001)</td></tr>
+    <tr><td><code>edificio</code></td><td>string</td><td>✅</td><td>Nome completo dell'edificio</td></tr>
+    <tr><td><code>aula</code></td><td>string</td><td>✅</td><td>Nome o codice dell'aula</td></tr>
+    <tr><td><code>stato</code></td><td>enum</td><td>✅</td><td>"Libera" / "In Lezione" / "Occupata Studio"</td></tr>
+    <tr><td><code>capienza_totale</code></td><td>int &gt; 0</td><td>✅</td><td>Posti massimi dell'aula</td></tr>
+    <tr><td><code>posti_disponibili</code></td><td>int ≥ 0</td><td>✅</td><td>Posti attualmente liberi</td></tr>
+    <tr><td><code>posti_occupati</code></td><td>int</td><td>✅</td><td>Derivato: capienza − disponibili</td></tr>
+    <tr><td><code>prese_elettriche</code></td><td>boolean</td><td>✅</td><td>Presenza prese elettriche</td></tr>
+    <tr><td><code>libera_fino_a</code></td><td>string</td><td>❌</td><td>Orario HH:MM o "N/D"</td></tr>
+    <tr><td><code>docente_referente</code></td><td>string</td><td>❌</td><td>Nome docente responsabile</td></tr>
+    <tr><td><code>data_aggiornamento</code></td><td>ISO 8601</td><td>✅</td><td>Timestamp ultimo aggiornamento</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>KPI Dimostrativi</h2>
+<p>Calcolati sul dataset demo composto da 6 aule:</p>
+<div class="kpi-grid">
+  <div class="kpi-card"><small>Aule Libere</small><strong>4</strong><span>su 6 totali (67%)</span></div>
+  <div class="kpi-card"><small>Posti Disponibili</small><strong>72</strong><span>nelle aule libere</span></div>
+  <div class="kpi-card"><small>Occupazione Globale</small><strong>41%</strong><span>70 / 172 posti</span></div>
+</div>
+<table>
+  <thead><tr><th>ID</th><th>Aula</th><th>Edificio</th><th>Stato</th><th>Disp/Tot</th><th>Prese</th></tr></thead>
+  <tbody>
+    <tr><td>SC-001</td><td>Aula A101</td><td>Edificio A - Ingegneria</td><td>Libera</td><td>10/40</td><td>✅</td></tr>
+    <tr><td>SC-002</td><td>Lab 3</td><td>Edificio A - Ingegneria</td><td>In Lezione</td><td>0/32</td><td>✅</td></tr>
+    <tr><td>SC-003</td><td>Aula B204</td><td>Edificio B - Economia</td><td>Libera</td><td>18/24</td><td>❌</td></tr>
+    <tr><td>SC-004</td><td>Sala Studio 2</td><td>Biblioteca Centrale</td><td>Occupata Studio</td><td>6/20</td><td>✅</td></tr>
+    <tr><td>SC-005</td><td>Aula C012</td><td>Edificio C - Lettere</td><td>Libera</td><td>32/40</td><td>✅</td></tr>
+    <tr><td>SC-006</td><td>Aula B110</td><td>Edificio B - Economia</td><td>Libera</td><td>12/16</td><td>❌</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Vincoli e Assunzioni</h2>
+<table>
+  <thead><tr><th>Vincolo</th><th>Descrizione</th><th>Motivazione</th></tr></thead>
+  <tbody>
+    <tr><td>Python stdlib only</td><td>Nessun pacchetto pip</td><td>Massima portabilità, regola hackathon</td></tr>
+    <tr><td>Nessun server</td><td>Nessun Flask, Django, FastAPI</td><td>Funzionamento offline, semplicità</td></tr>
+    <tr><td>Nessun database</td><td>File JSON/CSV come storage</td><td>Zero configurazione</td></tr>
+    <tr><td>Nessun framework JS</td><td>Vanilla JS puro</td><td>Nessuna dipendenza npm</td></tr>
+    <tr><td>file:// compatibility</td><td>Dashboard apribile senza server</td><td>Accessibilità immediata</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Roadmap Futura</h2>
+<div class="roadmap-item"><div class="roadmap-num">01</div><div><h3 style="margin:0 0 4px">Fase 2 — Backend Leggero (Q1 2027)</h3><p>Integrazione SQLite, API REST con Flask/FastAPI, autenticazione base, aggiornamento in tempo reale via WebSocket.</p></div></div>
+<div class="roadmap-item"><div class="roadmap-num">02</div><div><h3 style="margin:0 0 4px">Fase 3 — Integrazione IoT (Q2 2027)</h3><p>Sensori PIR per rilevamento presenze, feed automatico da calendari accademici (ESSE3, Moodle), notifiche push.</p></div></div>
+<div class="roadmap-item"><div class="roadmap-num">03</div><div><h3 style="margin:0 0 4px">Fase 4 — App Mobile e Scalabilità (Q3-Q4 2027)</h3><p>Progressive Web App, supporto multi-campus, dashboard amministrativa con analytics storiche, SSO universitario.</p></div></div>
+
+<hr>
+
+<h2>Team e Ruoli</h2>
+<div class="team-grid">
+  <div class="team-card"><div class="team-avatar">AM</div><div><h4>Alessandro Matrigiano</h4><small>Team Lead &amp; Backend Dev — Architettura, main.py, coordinamento</small></div></div>
+  <div class="team-card"><div class="team-avatar">GR</div><div><h4>Giuseppe Ragno</h4><small>Frontend Dev — index.html, style.css, app.js, UI/UX</small></div></div>
+  <div class="team-card"><div class="team-avatar">PL</div><div><h4>Pietro Lombardi</h4><small>Data &amp; Testing — Modello dati, dataset demo, test funzionali</small></div></div>
+  <div class="team-card"><div class="team-avatar">GL</div><div><h4>Gabriel Loconte</h4><small>Presentazione &amp; DevOps — 9 slide, AVVIA.bat, documentazione</small></div></div>
+</div>
+
+<hr>
+
+<h2>Conclusioni</h2>
+<p><strong>Smart Campus Space Finder</strong> dimostra che è possibile costruire una soluzione utile, funzionale e ben strutturata rispettando vincoli tecnologici severi. Il progetto raggiunge tutti gli obiettivi primari definiti nella fase di analisi e offre una base solida per evoluzioni future.</p>
+<p>L'approccio "offline-first" con file JSON locale è una scelta consapevole che permette un'adozione immediata in qualsiasi contesto, senza requisiti infrastrutturali. Questo lo rende adatto non solo a grandi atenei, ma anche a piccole scuole e qualsiasi realtà che necessiti di gestire spazi condivisi in modo semplice ed efficace.</p>
+
+<div class="doc-footer">
+  <p>Smart Campus Space Finder · Python Innovation Hackathon – Challenge 1 · Novembre 2026</p>
+  <p>Project Brief v1.0 — Alessandro Matrigiano · Giuseppe Ragno · Pietro Lombardi · Gabriel Loconte</p>
+</div>
+
+</div>
+</body>
+</html>

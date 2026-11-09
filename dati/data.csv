@@ -1,0 +1,7 @@
+﻿id,edificio,aula,stato,capienza_totale,posti_disponibili,posti_occupati,prese_elettriche,libera_fino_a,docente_referente,data_aggiornamento
+SC-001,Edificio A - Ingegneria,Aula A101,Libera,40,10,30,Sì,16:30,Prof. Mario Rossi - Algoritmi,2026-11-06T12:51:29+01:00
+SC-002,Edificio A - Ingegneria,Lab 3,In Lezione,32,0,32,Sì,12:00,Prof.ssa Laura Bianchi - Basi di Dati,2026-11-06 08:45:00
+SC-003,Edificio B - Economia,Aula B204,Libera,24,18,6,No,18:00,Prof. Andrea Verdi - Economia Digitale,2026-11-06 09:10:00
+SC-004,Biblioteca Centrale,Sala Studio 2,Occupata Studio,20,6,14,Sì,20:00,Dott.ssa Elena Neri - Tutorato,2026-11-06 09:05:00
+SC-005,Edificio C - Lettere,Aula C012,Libera,40,32,8,Sì,17:15,Prof.ssa Marta Gallo - Letteratura Italiana,2026-11-06 09:15:00
+SC-006,Edificio B - Economia,Aula B110,Libera,16,12,4,No,15:45,Prof. Luca Ferri - Statistica,2026-11-06 09:20:00
